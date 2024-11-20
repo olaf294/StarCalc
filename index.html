@@ -1,138 +1,154 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>StarCalc</title>
+    <title>Star Calculator (redesigned by Xupix)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" media="screen,projection"/>
+    <meta property="og:title" content="Star Calculator (redesigned by Xupix)">
+    <meta property="og:site_name" content="Star Calculator">
+    <meta property="og:description" content="Star Calculator, originally made by Jugh3ad, redesigned by me, Xupix. In this
+        website, you can calculate the amount of Golden Scrap, Magnets and Fragments needed to upgrade a certain numbers of
+        stars. This website is a tool useful for a game called Scrap II.">
+    <meta property="og:type" content=website>
+    <meta property="og:image" content="./imgs/Star.png">
     <link type="text/css" rel="stylesheet" href="css/site.css" media="screen,projection"/>
-
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1 class="text-center"><span id = "lblTitle">Star Levels </span></h1>
-<div class="text-center" ><span id = "lblSetAll" >Set all Stars: </span><input id="setAll" type="number" maxlength="5" placeholder="Enter level" onchange="setAll();calculate()" min="10" value="10" ></div>
-<div class="text-center" ><span id = "lblSettings">Remember My Settings: </span><input id="rememberMe" type="checkbox" onchange="onRememberMeChange()"></div>
-<div class="d-grid gap-3">
-    <div class="container">
-        <div class="row d-flex justify-content-evenly">
-            <div class="col starContainer">
-                <label class="text-center">
+<body class="w-full min-h-screen">
+<main class="m-0 py-2 p-0 md:p-2 bg-gradient-to-b from-green-900 to-green-950 text-[#C8C8C8] flex flex-col items-center justify-evenly min-h-screen">
+<div class="flex gap-3 items-center"><img class="w-10 md:w-25 h-10 md:h-25 -rotate-12 starIcon" alt="Star"><h1 class="text-2xl md:text-5xl font-bold my-3"><span id = "lblTitle">Star Levels </span></h1><img class="w-10 md:w-25 h-10 md:h-25 rotate-12 starIcon" alt="Star"></div>
+<div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-5 w-full md:w-5/6 px-0 md:px-5">
+<section class="bg-gray-300 text-black text-center rounded-xl overflow-hidden w-5/6 md:w-2/3 shadow">
+<div class="bg-gradient-to-b from-gray-700 from-50% to-50% to-[#2b3340] text-[#C8C8C8]">
+    <p class="text-2xl font-bold p-2"><span id="lblWindow1Title">Upgrade</span></p>
+</div>
+
+<div class="p-4">
+<div class="bg-gray-900 text-[#C8C8C8] p-3 rounded">
+    <p class="text-xl mb-2"><span id = "lblSetAll" >Set all Stars: </span><input class="rounded-xl text-black w-24 px-2" id="setAll" type="number" maxlength="5" placeholder="Enter level" oninput="setAll();calculate()" min="10" value="10" ></p>
+    <!-- <p class="text-center" ><span id = "lblSettings">Remember My Settings: </span><input id="rememberMe" type="checkbox" onchange="onRememberMeChange()"></p> -->
+    <p class="text-center">
+        <span id="lblTarget">Target Star Level:</span>
+        <input class="rounded-xl text-black w-24 px-2" id="target" type="number" placeholder="Enter level" min="11"
+            value="11" oninput="calculate()">
+    </p>
+</div>
+    <div class="text-black flex flex-col justify-center items-center">
+        <div class="flex gap-3">
+            <div class="relative">
                     <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar1" type="number" value="10" maxlength="5" min="10" onchange="calculate()" >
-                </label>
+                    <input class="text-xl starInput centered" id="inpStar1" type="number" value="10" maxlength="5" min="10" oninput="calculate()" >
             </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar2" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-evenly">
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar3" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
-            </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar4" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
-            </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar5" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar2" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
         </div>
-        <div class="row d-flex justify-content-evenly">
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar6" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+        <div class="flex gap-3">
+        <div class="relative">
+            <img class="starIcon" alt="Star">
+            <input class="text-xl starInput centered" id="inpStar3" type="number" value="10" maxlength="5" min="10"
+                oninput="calculate()">
+        </div>
+        <div class="relative">
+            <img class="starIcon" alt="Star">
+            <input class="text-xl starInput centered" id="inpStar4" type="number" value="10" maxlength="5" min="10"
+                oninput="calculate()">
+        </div>
+        <div class="relative">
+            <img class="starIcon" alt="Star">
+            <input class="text-xl starInput centered" id="inpStar5" type="number" value="10" maxlength="5" min="10"
+                oninput="calculate()">
+        </div>
+        </div>
+        <div class="flex gap-3">
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar6" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar7" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar7" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar8" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar8" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
         </div>
-        <div class="row d-flex justify-content-evenly">
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="centered starInput" id="inpStar9" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+        <div class="flex gap-3">
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar9" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
-            <div class="col starContainer">
-                <label class="text-center">
-                    <img class="starIcon" alt="Star">
-                    <input class="starInput centered" id="inpStar10" type="number" value="10" maxlength="5" min="10" onchange="calculate()">
-                </label>
+            <div class="relative">
+                <img class="starIcon" alt="Star">
+                <input class="text-xl starInput centered" id="inpStar10" type="number" value="10" maxlength="5" min="10"
+                    oninput="calculate()">
             </div>
         </div>
     </div>
-    <div class="text-center">
-        <label class="text-center">
-            <span class="h3 w-50" id="lblv2Level">Scrapyard V2 Level:</span>
-            <input class="w-25" id="v2" type="number" placeholder="Enter level" min="1" value="1" onchange="calculate()">
-        </label>
-		<br/>
-        <label class="text-center">
-            <span class="h3 w-50" id="lblAchievementAmount">Unlocked Achievements:</span>
-            <input class="w-25" id="achievement" type="number" placeholder="Enter Amount" min="0" value="0" onchange="calculate()">
-        </label>
-        <label class="text-center">
-            <span class="h3 w-50" id="lblMasteryBoost17">Mastery 17+ Barrels:</span>
-            <input class="w-25" id="masteryBoost17" type="number" placeholder="Enter Amount" min="0" value="0" onchange="calculate()">
-        </label>
-		<br/>
-        <label class="text-center">
-            <span class="h3 w-50" id = "lblTarget">Target Star Level:</span>
-            <input class="w-25" id="target" type="number" placeholder="Enter level" min="11" value="11" onchange="calculate()">
-        </label>
+    </div>
+</section>
+
+<section class="bg-gray-300 text-black text-center rounded-xl overflow-hidden w-5/6 md:w-2/3 shadow">
+<div class="bg-gradient-to-b from-gray-700 from-50% to-50% to-[#2b3340] text-[#C8C8C8]">
+    <p class="text-2xl font-bold p-2"><span id="lblWindow2Title">Results</span></p>
+</div>
+
+<div class="p-4">
+    <div class="bg-gray-900 text-[#C8C8C8] p-3 rounded">
+        <p class="text-center mb-2">
+            <span id="lblv2Level">Scrapyard V2 Level:</span>
+            <input class="rounded-xl text-black w-24 px-2" id="v2" type="number" placeholder="Enter level" min="1" value="1" oninput="calculate()">
+        </p>
+        <p class="text-center mb-2">
+            <span id="lblAchievementAmount">Unlocked Achievements:</span>
+            <input class="rounded-xl text-black w-24 px-2" id="achievement" type="number" placeholder="Enter Amount" min="0" value="0" oninput="calculate()">
+        </p>
+        <p class="text-center">
+            <span id="lblMasteryBoost17">Mastery 17+ Barrels:</span>
+            <input class="rounded-xl text-black w-24 px-2" id="masteryBoost17" type="number" placeholder="Enter Amount" min="0" value="0" oninput="calculate()">
+        </p>
         <!--<div class="text-center" style="padding: 10px;">
             <button class="btn btn-primary" onclick="calculate()" >Submit</button>
         </div> 
 		-->
     </div>
 
-    <div class="container">
-        <div class="flex-column">
-            <div class="flex-row">
-                <img class="gsIcon" alt="Golden Scrap">
-                <label class="text-center">
-                    <span class="h3 dispInput" id="gs">0</span>
-                </label>
-            </div>
-            <div class="flex-row">
-                <img class="magIcon" alt="Magnets">
-                <label class="text-center">
-                    <span class="h3 dispInput" id="mag">0</span>
-                </label>
-            </div>
-            <div class="flex-row">
-                <img class="fragmentIcon" alt="Fragments">
-                <label class="text-center">
-                    <span class="h3 dispInput" id="fragment">0</span>
-                </label>
-            </div>
+    <div class="flex flex-col items-center justify-center mt-10">
+        <div class="flex items-center gap-2">
+            <img class="gsIcon" alt="Golden Scrap">
+            <label class="text-center text-3xl font-bold">
+                <span class="dispInput" id="gs">0</span>
+            </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <img class="magIcon" alt="Magnets">
+            <label class="text-center text-3xl font-bold">
+                <span class="dispInput" id="mag">0</span>
+            </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <img class="fragmentIcon" alt="Fragments">
+            <label class="text-center text-3xl font-bold">
+                <span class="dispInput" id="fragment">0</span>
+            </label>
         </div>
     </div>
 </div>
-<div style="color:white; text-align:center;">Designed with 🤍 by ScrapObsession's very own Dom</div>
-<div style="color:white; text-align:center;">Meticulous coded and tested by Jugh3ad</div>
-<div style="color:white; text-align:center;">Images courtesy of <a href="https://official-scrap-2.fandom.com/">Official Scrap 2 Wiki | Fandom</a></div>
-<div style="color:white; text-align:center;">Issues/Suggestions? <a href="https://github.com/jugh3ad/StarCalc">Submit a Pull Request or Issue</a></div>
+</section>
+</div>
+
+<footer class="m-3 text-sm text-center">
+<p class="text-white">Redesigned with ❤️ by <a target="_blank" href="https://github.com/Cocolin67">Xupix</a> (the code was a little bit changed as well)</p>
+<p>Originally coded and tested by Jugh3ad</p>
+<p>Images courtesy of <a target="_blank" href="https://official-scrap-2.fandom.com/">Official Scrap 2 Wiki | Fandom</a></p>
+<p>Issues/Suggestions? <a target="_blank" href="https://github.com/jugh3ad/StarCalc">Submit a Pull Request or Issue</a></p>
+</footer>
+</main>
 
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="js/site.js"></script>

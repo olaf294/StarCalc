@@ -5,6 +5,8 @@ var language = window.navigator.userLanguage || window.navigator.language;
 var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
   "en": {
     "Title": "Star Calc",
+    "Window1Title": "Upgrade",
+    "Window2Title": "Results",
     "SetAll": "Set all to: ",
     "Settings": "Remember levels: ",
     "v2Level": "Scrapyard V2: ",
@@ -14,6 +16,8 @@ var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
   },
   "es": {
     "Title": "Cálculo de Estrellas",
+    "Window1Title": "Mejora",
+    "Window2Title": "Resultados",
     "SetAll": "Establecer todo en: ",
     "Settings": "Recuerda niveles: ",
     "v2Level": "Vertedero V2: ",
@@ -23,6 +27,8 @@ var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
   },
   "ru": {
     "Title": "Звездный Кальк",
+    "Window1Title": "Обновление",
+    "Window2Title": "Результаты",
     "SetAll": "Установить все звезды: ",
     "Settings": "Запомнить уровни: ",
     "v2Level": "Двор мусора v2: ",
@@ -32,6 +38,8 @@ var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
   },
   "de": {
     "Title": "Sterne Kalkulator",
+    "Window1Title": "Upgrade",
+    "Window2Title": "Ergebnisse",
     "Settings": "Merken Sie sich die Level: ",
     "SetAll": "Setze alle Sterne: ",
     "v2Level": "Schrottplatz V2: ",
@@ -41,6 +49,8 @@ var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
   },
   "fr": {
     "Title": "Étoile Calculette",
+    "Window1Title": "Améliorer",
+    "Window2Title": "Résultats",
     "Settings": "Mémoriser les niveaux: ",
     "SetAll": "Définir toutes les étoiles: ",
     "v2Level": "Parc à casse V2: ",
@@ -53,8 +63,9 @@ var languages = { //TODO translate AchievementAmount, MasteryBoost17 label
 
 language = language.substring(0,2);
 document.getElementById("lblTitle").innerHTML = languages[language]["Title"];
+document.getElementById("lblWindow1Title").innerHTML = languages[language]["Window1Title"];
+document.getElementById("lblWindow2Title").innerHTML = languages[language]["Window2Title"];
 document.getElementById("lblSetAll").innerHTML = languages[language]["SetAll"];
-document.getElementById("lblSettings").innerHTML = languages[language]["Settings"];
 document.getElementById("lblv2Level").innerHTML = languages[language]["v2Level"];
 document.getElementById("lblAchievementAmount").innerHTML = languages[language]["AchievementAmount"];
 document.getElementById("lblMasteryBoost17").innerHTML = languages[language]["MasteryBoost17"];
@@ -80,7 +91,6 @@ function setLocalStorage() {
 	inpStars.forEach(input => {
 		localStorage.setItem(input,document.getElementById(input).value);
 	});
-	localStorage.setItem("rememberMe",document.getElementById("rememberMe").checked);
 }
 
 function checkLocalStorage(){
@@ -166,7 +176,8 @@ function calculate() {
   document.getElementById("mag").innerHTML = magAmount.toLocaleString(language);
   document.getElementById("fragment").innerHTML = fragmentAmount.toLocaleString(language);
   
-  if ( document.getElementById("rememberMe").checked ) setLocalStorage();
+  //Save by default
+  setLocalStorage();
   
 }
 

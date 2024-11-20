@@ -5,8 +5,8 @@
 }
 .starIcon {
     content:url("../imgs/Star.png");
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 .gsIcon {
     content:url("../imgs/GoldenScrap.png");
@@ -24,7 +24,8 @@
     height: 75px;
 }
 .starInput{
-    width: 90px;
+    margin-left: 5px;
+    width: 80px;
     text-align: center;
     border: none;
     background: transparent;
@@ -43,13 +44,6 @@
     top: 50%;
     left: 53%;
     transform: translate(-50%, -50%);
-}
-body {
-background-color: #a1a1a1;
-min-width: 375px;
-max-width: 550px;
-margin: auto;
-
 }
 
 .red::placeholder{
