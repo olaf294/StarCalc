@@ -24,8 +24,8 @@
     height: 75px;
 }
 .starInput{
-    margin-left: 5px;
-    width: 80px;
+    margin-left: 10px;
+    width: 75px;
     text-align: center;
     border: none;
     background: transparent;
@@ -42,7 +42,7 @@
 .centered {
     position: absolute;
     top: 50%;
-    left: 53%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
