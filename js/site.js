@@ -202,7 +202,7 @@ function achievementModifier()
 {
   var modifier;
   var amount = document.getElementById("achievement").value;
-  modifier = 2000 - Math.max(0,Math.min(50,amount - 25));
+  modifier = 1000 - Math.max(0,Math.min(50,amount - 25));
   return modifier;
 }
 
@@ -329,7 +329,7 @@ function magnetCost(starLevel, scrapyardMul, achievementMul, masteryBoost17Mul) 
   if (starLevel >= 1760) cost *= 1.269;
   if (starLevel >= 1810) cost *= 1.1;
   if (starLevel >= 1860) cost *= Math.pow(1.1, Math.floor((starLevel - 1810) / 50));
-  return Math.floor((cost * 100) * achievementMul * masteryBoost17Mul / ((scrapyardMul + 100) * 1000));
+  return Math.floor((cost * 100) *( achievementMul * 2) * masteryBoost17Mul / ((scrapyardMul + 100) * 1000));
 }
 
 function fragmentCost(starLevel, scrapyardMul, achievementMul, masteryBoost17Mul) {
@@ -366,5 +366,5 @@ function fragmentCost(starLevel, scrapyardMul, achievementMul, masteryBoost17Mul
   if (starLevel >= 810) cost *= 1.1;
   if (starLevel >= 910) cost *= 1.1;
   if (starLevel >= 1010) cost *= 1.1;
-  return Math.floor((cost * 100) * achievementMul * masteryBoost17Mul / ((scrapyardMul + 100) * 1000));
+  return Math.floor((cost * 100) * (achievementMul * 2) * masteryBoost17Mul / ((scrapyardMul + 100) * 1000));
 }
